@@ -1,21 +1,41 @@
 {
   "name": "rankmyfandom",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+"version": "1.0.0",
+  "description": "Backend modular y escalable para KarenFlix con Node.js, Express y MongoDB",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "lint": "eslint .",
+    "test": "jest"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Mateo-Paternina-Mercado/rankMyFandom.git"
+  "keywords": [
+    "node",
+    "express",
+    "mongodb",
+    "jwt",
+    "backend",
+    "karenflix"
+  ],
+  "author": "Tu Nombre",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.4.0",
+    "express-validator": "^7.0.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.8.0",
+    "passport": "^0.7.0",
+    "passport-jwt": "^4.0.1",
+    "swagger-ui-express": "^5.0.1",
+    "semver": "^7.6.3"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/Mateo-Paternina-Mercado/rankMyFandom/issues"
-  },
-  "homepage": "https://github.com/Mateo-Paternina-Mercado/rankMyFandom#readme"
+  "devDependencies": {
+    "nodemon": "^3.1.0",
+    "eslint": "^9.9.0",
+    "jest": "^29.7.0"
+  }
 }
