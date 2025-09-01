@@ -1,9 +1,11 @@
 const express = require("express");
 const router = express.Router();
+const { getMovies, createMovie } = require("../controllers/movie.controller");
 
-// Ejemplo de endpoint GET
-router.get("/", (req, res) => {
-  res.json({ message: "Lista de películas 🎬" });
-});
+// GET /api/movies
+router.get("/", getMovies);
+
+// POST /api/movies
+router.post("/", createMovie);
 
 module.exports = router;

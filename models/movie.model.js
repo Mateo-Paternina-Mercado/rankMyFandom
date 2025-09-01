@@ -1,8 +1,11 @@
-class Movie {
-  constructor(id, title, description) {
-    this.id = id;
-    this.title = title;
-    this.description = description;
+class Moviecreate {
+  constructor(titulo, descripcion, anio, tipo, categoria, img) {
+    this.titulo = titulo;
+    this.descripcion = descripcion;
+    this.anio = anio;
+    this.tipo = tipo;
+    this.categoria = categoria;
+    this.img = img;
   }
 }
-module.exports = Movie;
+module.exports = Moviecreate;
