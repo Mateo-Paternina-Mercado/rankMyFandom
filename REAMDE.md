@@ -1,118 +1,142 @@
-### KarenFlix
+Claro, Manuel 😎. Aquí tienes un **README.md** completo y profesional para tu proyecto **KarenFlix**, adaptado a lo que me pediste:
+
+````markdown
+# KarenFlix - Backend
+
+## Descripción del proyecto
+KarenFlix es una aplicación full-stack desarrollada con **Node.js + Express** para el backend y **HTML + CSS + JavaScript puro** para el frontend. Permite a los usuarios registrar, calificar y rankear películas, animes y series geek, gestionando usuarios, reseñas, categorías y rankings, con roles diferenciados entre usuarios y administradores.  
+
+La aplicación incluye:
+- Autenticación segura mediante JWT.
+- Validaciones robustas en todas las rutas.
+- Gestión de películas, series, categorías y reseñas.
+- Ranking de películas basado en calificaciones, likes/dislikes y comentarios.
+- Frontend independiente que consume la API del backend.
+
 ---
-## **Objetivo**
 
-El objetivo de este proyecto es desarrollar una aplicación **full-stack** usando **Node.js + Express** para el backend y **HTML + CSS puro** para el frontend, que permita a los usuarios registrar, calificar y rankear películas, animes y series geek. Esta herramienta debe incluir funcionalidades para gestionar usuarios, reseñas, categorías y rankings, diferenciando permisos de usuario y administrador. Además, debe contar con autenticación segura, validaciones robustas y un frontend que consuma la API desarrollada.
+## Tecnologías utilizadas
+- **Backend:** Node.js, Express, MongoDB (driver oficial), dotenv, passport-jwt, jsonwebtoken, bcrypt, express-validator, express-rate-limit, swagger-ui-express, semver.
+- **Frontend:** HTML, CSS, JavaScript puro.
+- **Gestión de versiones:** GitHub.
+- **Planeación de proyecto:** SCRUM, Trello/GitHub Projects (roles, sprints e historias de usuario).
 
-## La aplicación debe:
+---
 
-- Estar desarrollada completamente en Node.js con Express para el backend.
-- Implementar autenticación con JWT usando passport-jwt, jsonwebtoken y bcrypt.
-- Usar dotenv para la configuración de variables de entorno.
-- Integrar express-rate-limit para limitar peticiones y evitar abusos.
-- Implementar validaciones en endpoints usando express-validator.
-- Persistir los datos en MongoDB, usando el driver oficial (no mongoose).
-- Documentar todos los endpoints usando swagger-ui-express.
-- Versionar el API siguiendo semver.
-- Manejar transacciones reales en MongoDB para operaciones críticas (ej. creación de reseñas con rating inicial, gestión de likes/dislikes).
-- Contar con una arquitectura coherente (ejemplo: /models, /controllers, /routes, /middlewares, /services, /config, /utils).
-- Tener un frontend independiente en otro repositorio, desarrollado en HTML + CSS + JS puro.
+## Instalación y uso
 
-## **Funcionalidades requeridas**
+1. **Clonar repositorio:**
+```bash
+git clone https://github.com/Mateo-Paternina-Mercado/rankMyFandom_backend.git
+````
 
-1. **Gestión de usuarios**
-- Registro, inicio de sesión y autenticación mediante JWT.
-- Roles: usuario y administrador.
-- Los administradores pueden gestionar categorías y aprobar películas.
-1. **Gestión de películas y series**
-- CRUD de películas/series (solo administradores aprueban nuevas entradas).
-- Validación para evitar títulos repetidos.
-- Atributos mínimos: título, descripción, categoría, año, imagen opcional.
-1. **Gestión de reseñas y ratings**
-- Los usuarios pueden crear, editar y eliminar reseñas.
-- Cada reseña incluye: título, comentario, calificación numérica (1-10).
-- Los usuarios pueden dar **like/dislike** a reseñas de otros (no a las propias).
-- El sistema debe calcular un **ranking ponderado** de películas basado en calificaciones, likes/dislikes y fecha de reseña.
-1. **Categorías**
-- CRUD de categorías (ejemplo: Anime, Ciencia Ficción, Superhéroes, Fantasía).
-- Solo administradores pueden gestionarlas.
-1. **Ranking y listados**
-- Listado de películas con ordenamiento por popularidad y ranking.
-- Filtrado por categoría.
-- Vista de detalle con información y reseñas asociadas.
+2. **Instalar dependencias:**
 
-## **Especificaciones técnicas obligatorias**
+```bash
+npm install
+```
 
-1. **Backend (Node.js + Express)**
-- Uso obligatorio de dotenv, express, express-rate-limit, express-validator, mongodb, semver, swagger-ui-express, passport-jwt, jsonwebtoken, bcrypt.
-- MongoDB con operaciones transaccionales para garantizar consistencia.
-- Arquitectura modular y escalable.
-- Manejo de errores centralizado y códigos HTTP correctos.
-- Debe estar desarrollado en Node.js con Express.
-- Uso de variables de entorno para credenciales y configuración (archivo .env).
-- Modularización del código (separar rutas, controladores, modelos y configuración).
-- Validaciones en las rutas usando express-validator.
-- Manejo adecuado de errores y envío de respuestas con los códigos HTTP correctos.
-- Configuración de CORS para permitir la conexión desde el frontend.
-- Documentación en el README con:
-- Explicación del proyecto.
-- Requerimientos de instalación.
-- Variables de entorno necesarias.
-- Ejemplos de endpoints y cómo probarlos.
-- Link al repositorio del frontend.
-1. **Frontend**
-- HTML, CSS y JavaScript puro.
-- Pantallas mínimas: Inicio, Registro/Login, Listado de películas, Detalle de película, Panel admin.
-- Debe consumir los endpoints del backend.
-- Interfaz amigable y responsive para realizar todas las operaciones (crear, leer, actualizar, eliminar).
-- Mostrar mensajes de validación o error provenientes del backend.
-- Repositorio separado del backend.
-1. **Documentación (README del backend)**
-- Descripción del proyecto y temática elegida.
-- Tecnologías usadas.
-- Pasos para instalar y ejecutar.
-- Ejemplos de endpoints y cómo consumirlos.
-- Link al repositorio del frontend.
-1. **Video de entrega**
-- Duración máxima: **10 minutos**.
-- Deben aparecer todos los integrantes en cámara.
-- Mostrar brevemente el código del backend.
-- Mostrar el funcionamiento completo del frontend.
-    
-    ## **Planeación del proyecto**
-    
-    - El desarrollo se debe realizar bajo **SCRUM**.
-    - Roles definidos: Scrum Master, Product Owner, Developers.
-    - Definir al menos 2 sprints.
-    - Historias de usuario documentadas.
-    - Herramienta de seguimiento: GitHub Projects, Trello, ClickUp o similar.
-    - Documento de planeación en PDF adjunto al repositorio backend, siguiendo [plantilla](https://docs.google.com/document/d/1cd2HSFAX7DXmJsEk88fRRDa8tz1qB3G1/edit?usp=sharing&ouid=109899919350798549476&rtpof=true&sd=true) entregada.
+3. **Configurar variables de entorno** (.env):
 
-Resultado esperado:
+```env
+PORT=3000
+MONGO_URI=mongodb://localhost:27017
+DB_NAME=peliculasdb
+FRONTEND_URL=http://localhost:5173
+JWT_SECRET=supersecreto
+```
 
-La entrega se debe hacer en equipo, subiendo el proyecto a un repositorio GitHub privado y agregando al trainer como colaborador. El backend debe contener toda la lógica y documentación. El frontend debe estar en un repositorio separado, vinculado desde el README del backend.
+4. **Iniciar servidor en modo desarrollo:**
 
-**El repositorio backend debe incluir:**
+```bash
+npm start
+```
 
-1. **README.md** con:
-    - Descripción del proyecto.
-    - Instrucciones de instalación y uso.
-    - Estructura del proyecto.
-    - Principios aplicados.
-    - Consideraciones técnicas.
-    - Créditos.
-    - Link al repo del frontend.
+5. **Endpoints disponibles:**
 
-**1. Documento SCRUM en PDF** con:
+* `/api/v1/auth` → Registro, login y autenticación.
+* `/api/v1/users` → Gestión de usuarios.
+* `/api/v1/movies` → CRUD de películas y series.
+* `/api/v1/reviews` → CRUD de reseñas.
+* `/api/v1/categories` → CRUD de categorías.
+* `/api/v1/ranking` → Rankings de películas/series. (no disponible aun)
 
-- Roles asignados.
-- Definición de sprints.
-- Historias de usuario.
-- Herramienta de seguimiento.
-- Evidencias.
+---
 
-**1. Video** enlazado en el README mostrando:
+## Estructura del proyecto
 
-- Explicación técnica.
-- Ejemplos de código.
-- Demo funcional de la aplicación completa.
+```
+/karenflix-backend
+├─ /config         # Configuración de la base de datos y entorno
+├─ /controllers    # Lógica de negocio por recurso
+├─ /middlewares    # Middlewares (autenticación, errores, rate-limiter)
+├─ /models         # Modelos de MongoDB
+├─ /routes         # Definición de rutas de la API
+├─ /services       # Funciones auxiliares y servicios externos
+├─ /utils          # Utilidades generales
+├─ /validators     # validaciones
+├─ server.js       # Archivo principal
+└─ README.md
+```
+
+---
+
+## Principios aplicados
+
+* **Arquitectura modular y escalable.**
+* **Validaciones robustas** con express-validator.
+* **Autenticación y autorización** con JWT.
+* **Operaciones transaccionales** en MongoDB.
+* **Documentación de API** con Swagger.
+* **Rate limiting** para prevenir abusos.
+* **Manejo centralizado de errores**.
+
+---
+
+## Consideraciones técnicas
+
+* Se usa **MongoDB nativo**, sin Mongoose.
+* El backend está diseñado para ser consumido por un frontend independiente.
+* Roles diferenciados: `usuario` y `administrador`.
+* Cada endpoint devuelve códigos HTTP correctos según la operación.
+* Uso de variables de entorno para credenciales y configuraciones sensibles.
+
+---
+
+## Créditos
+
+* **Desarrolladores:** \[Manuel], \[Mateo], \[Nombre 3]
+* **Diseño Frontend:** Inspiración en interfaces modernas de ranking de películas.
+
+---
+
+## Link al frontend
+
+[Repositorio Frontend rank my fandom](https://github.com/07Manu03M/rankMyFandom.git)
+
+---
+
+## Planeación SCRUM
+
+* Documento PDF incluido en el repositorio: `https://drive.google.com/drive/folders/1LuciJVIX3DVWhyfSDMjpC8QhBAJhuOxJ?usp=sharing`
+
+---
+
+## Video demostrativo
+
+Se incluye un enlace al video de entrega, mostrando:
+
+* Explicación técnica del backend.
+* Ejemplos de código.
+* Demo funcional completa del frontend.
+* Todos los integrantes presentes.
+
+[Ver video de demostración](https://drive.google.com/drive/folders/194K9_hvwAl1fU2hHdeUI6siNqt6ev9eY?usp=sharing)
+
+---
+
+## Licencia
+
+hecho por Mateo y Manuel :D
+
+
