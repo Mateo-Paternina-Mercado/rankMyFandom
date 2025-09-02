@@ -54,14 +54,204 @@ npm start
 
 5. **Endpoints disponibles:**
 
-* `/api/v1/auth` → Registro, login y autenticación.
-* `/api/v1/users` → Gestión de usuarios.
-* `/api/v1/movies` → CRUD de películas y series.
-* `/api/v1/reviews` → CRUD de reseñas.
-* `/api/v1/categories` → CRUD de categorías.
-* `/api/v1/ranking` → Rankings de películas/series. (no disponible aun)
+- url base http://localhost:3000
 
 ---
+
+### 1️⃣ `/api/v1/auth`
+
+**Registro (POST)**
+URL: `http://localhost:3000/api/v1/auth/register`
+Body (JSON):
+
+```json
+{
+  "username": "Betty",
+  "email": "betty@gmail.com",
+  "password": "12345678"
+}
+```
+
+**Login (POST)**
+URL: `http://localhost:3000/api/v1/auth/login`
+Body (JSON):
+
+```json
+{
+  "email": "betty@gmail.com",
+  "password": "12345678"
+}
+```
+
+**Respuesta esperada (login)**:
+
+```json
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+  "user": {
+    "_id": "68b668c7abc0313a6376ae69",
+    "username": "Betty",
+    "email": "betty@gmail.com",
+    "role": "user"
+  }
+}
+```
+
+---
+
+### 2️⃣ `/api/v1/users`
+
+**Obtener todos los usuarios (GET)**
+URL: `http://localhost:3000/api/v1/users`
+Headers:
+`Authorization: Bearer <TOKEN_DEL_LOGIN>`
+
+**Respuesta ejemplo**:
+
+```json
+[
+  {
+    "_id": "68b668c7abc0313a6376ae69",
+    "username": "Betty",
+    "email": "betty@gmail.com",
+    "role": "user",
+    "createdAt": "2025-09-02T03:47:19.334+00:00"
+  }
+]
+```
+
+---
+
+### 3️⃣ `/api/v1/movies`
+
+**Crear película (POST)**
+URL: `http://localhost:3000/api/v1/movies`
+
+```json
+{
+  "titulo": "betty la fea",
+  "descripcion": "la fea mas fea",
+  "anio": "2025-09-23",
+  "tipo": "Serie",
+  "categoria": "Comedia",
+  "img": "https://www.ecartelera.com/carteles-series/300/391/001_p.jpg",
+  "banner": "https://www.dondeir.com/wp-content/uploads/2022/07/betty-fea-banner-1.jpg",
+  "estado": "aceptada"
+}
+```
+
+**Obtener películas (GET)**
+URL: `http://localhost:3000/api/v1/movies`
+
+**Respuesta ejemplo**:
+
+```json
+[
+  {
+    "_id": "68b6723440cc0ef50ea36fc1",
+    "titulo": "betty la fea",
+    "descripcion": "la fea mas fea",
+    "anio": "2025-09-23",
+    "tipo": "Serie",
+    "categoria": "Comedia",
+    "img": "https://www.ecartelera.com/carteles-series/300/391/001_p.jpg",
+    "banner": "https://www.dondeir.com/wp-content/uploads/2022/07/betty-fea-banner-1.jpg",
+    "estado": "aceptada",
+    "likes": 1,
+    "dislikes": 0,
+    "comentarios": 0,
+    "usersLiked": [{"id":"68b668c7abc0313a6376ae69","nombre":"Betty"}],
+    "usersDisliked": []
+  }
+]
+```
+
+---
+
+### 4️⃣ `/api/v1/reviews`
+
+**Crear reseña (POST)**
+URL: `http://localhost:3000/api/v1/reviews`
+Headers:
+`Authorization: Bearer <TOKEN_DEL_LOGIN>`
+Body (JSON):
+
+```json
+{
+  "movieId": "68b65a7e4d7626939386420e",
+  "comment": "askdhasljdklasjdklas",
+  "rating": 8
+}
+```
+
+**Obtener reseñas (GET)**
+URL: `http://localhost:3000/api/v1/reviews?movieId=68b65a7e4d7626939386420e`
+
+**Respuesta ejemplo**:
+
+```json
+[
+  {
+    "_id": "68b66b6540cc0ef50ea36fbe",
+    "userId": "68b668c7abc0313a6376ae69",
+    "username": "Betty",
+    "movieId": "68b65a7e4d7626939386420e",
+    "comment": "askdhasljdklasjdklas",
+    "rating": 8,
+    "likes": [],
+    "createdAt": "2025-09-02T03:58:29.042+00:00"
+  }
+]
+```
+
+---
+
+### 5️⃣ `/api/v1/categories`
+
+**Crear categoría (POST)**
+URL: `http://localhost:3000/api/v1/categories`
+Headers:
+`Authorization: Bearer <TOKEN_DEL_ADMIN>`
+Body (JSON):
+
+```json
+{
+  "titulo": "Comedia",
+  "descripcion": "se rien todos xd",
+  "fecha": "2025-09-01"
+}
+```
+
+**Obtener categorías (GET)**
+URL: `http://localhost:3000/api/v1/categories`
+
+**Respuesta ejemplo**:
+
+```json
+[
+  {
+    "_id": "68b62566d987d48c10442977",
+    "titulo": "Comedia",
+    "descripcion": "se rien todos xd",
+    "fecha": "2025-09-01"
+  }
+]
+```
+
+---
+
+💡 Tip: Para todos los POST/PUT que requieran autenticación, asegúrate de enviar en **Headers**:
+
+```
+Authorization: Bearer <TOKEN>
+```
+
+---
+
+Si quieres, Manuel, puedo hacerte un **archivo JSON listo para importar en Postman** con **todos estos endpoints configurados**, para que solo le des click y los pruebes sin escribir nada.
+
+¿Quieres que haga eso?
+
 
 ## Estructura del proyecto
 
@@ -105,7 +295,7 @@ npm start
 
 ## Créditos
 
-* **Desarrolladores:** \[Manuel], \[Mateo], \[Nombre 3]
+* **Desarrolladores:** \[Manuel], \[Mateo]
 * **Diseño Frontend:** Inspiración en interfaces modernas de ranking de películas.
 
 ---
