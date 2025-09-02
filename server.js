@@ -7,7 +7,7 @@ const { connectDB } = require("./config/db");
 const app = express();
 
 // Middlewares globales
-app.use(cors({ origin: ["http://localhost:5173", "http://127.0.0.1:5500"] }));
+app.use(cors({ origin: ["http://localhost:5173", "http://127.0.0.1:5500", "https://rank-my-fandom.vercel.app"] }));
 app.use(express.json());
 app.use(rateLimiter);
 

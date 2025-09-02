@@ -1,7 +1,8 @@
-class Category {
-  constructor(id, name) {
-    this.id = id;
-    this.name = name;
+class categorias {
+  constructor(titulo, descripcion, fecha) {
+    this.titulo = titulo;
+    this.descripcion = descripcion;
+    this.fecha = fecha;
   }
 }
-module.exports = Category;
+module.exports = categorias;

@@ -1,8 +1,11 @@
 const express = require("express");
 const router = express.Router();
+const { createCategory, getCategories } = require("../controllers/category.controller.js");
 
-router.get("/", (req, res) => {
-  res.json({ message: "Listado de categorías 📂" });
-});
+// POST /api/categories
+router.post("/", createCategory);
+
+// GET /api/categories
+router.get("/", getCategories);
 
 module.exports = router;
