@@ -1,6 +1,6 @@
 # KarenFlix - Backend
 
-# Descripción del proyecto
+## Descripción del proyecto
 KarenFlix es una aplicación full-stack desarrollada con **Node.js + Express** para el backend y **HTML + CSS + JavaScript puro** para el frontend. Permite a los usuarios registrar, calificar y rankear películas, animes y series geek, gestionando usuarios, reseñas, categorías y rankings, con roles diferenciados entre usuarios y administradores.  
 
 La aplicación incluye:
