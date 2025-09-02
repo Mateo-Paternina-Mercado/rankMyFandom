@@ -305,8 +305,7 @@ Si quieres, Manuel, puedo hacerte un **archivo JSON listo para importar en Postm
 
 ## Planeación SCRUM
 
-* Documento PDF incluido en el repositorio: `https://drive.google.com/drive/folders/1LuciJVIX3DVWhyfSDMjpC8QhBAJhuOxJ?usp=sharing`
-
+[Documento PDF incluido en el repositorio](https://drive.google.com/drive/folders/1LuciJVIX3DVWhyfSDMjpC8QhBAJhuOxJ?usp=sharing)
 ---
 
 ## Video demostrativo
