@@ -18,6 +18,7 @@ app.use("/api/v1/movies", require("./routes/movie.routes"));
 app.use("/api/v1/reviews", require("./routes/review.routes"));
 app.use("/api/v1/categories", require("./routes/category.routes"));
 app.use("/api/v1/ranking", require("./routes/ranking.routes"));
+app.use("/api/v1/notification", require("./routes/notificacion.routes"));
 
 // Middleware de errores
 const errorHandler = require("./middlewares/error.middleware");
